@@ -1,0 +1,667 @@
+:root {
+  font-size: 16px;
+  font-family: 'Open Sans';
+  --text-primary: #b6b6b6;
+  --text-secondary: #ececec;
+  --bg-primary: #23232e;
+  --bg-secondary: #141414;
+}
+
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+
+body {
+  background-color: #181817;
+  color: #ffc815;
+  width: 99%;
+  height: 100%;
+  padding: 0;
+}
+
+h2 {
+  font-size: 48px;
+}
+
+ul {
+  list-style: none;
+  padding-left:0;
+  
+}
+
+ul li:before {
+  content: "\00BB \0020";
+  color: red;
+}
+
+/* The laptop with borders */
+
+.laptop {
+  left: 10%;
+  position: relative;
+  width: 80%;
+  height: 0%;
+  border-radius: 6px;
+  background-color: black;
+  border: 3px solid silver;
+  padding-bottom: 50%;
+}
+
+/* The keyboard of the laptop */
+
+.laptop:after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 116%;
+  height: 6%;
+  margin-left: -8%;
+  top: 100%;
+  background: silver;
+  border-radius: 6px;
+}
+
+/* The top of the keyboard */
+
+.laptop:before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 32%;
+  height: 3%;
+  top: 100%;
+  left: 34%;
+  background: #777;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  z-index: 1;
+}
+
+/* The screen (or content) of the device */
+
+.laptop .content {
+  width: 98%;
+  height: 98%;
+  overflow: hidden;
+  border: none;
+  background-color: #8BC6EC;
+  background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
+  position: absolute;
+  margin-top: 1%;
+  margin-left: 1%;
+}
+
+/* Gradient Scrollbar */
+
+body::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: linear-gradient(0deg, rgba(255, 0, 0, 1) 0%, rgba(7, 0, 211, 1) 100%);
+}
+
+body::-webkit-scrollbar-thumb {
+  background: transparent;
+  /* opacity: 0; should do the thing either */
+  box-shadow: 0px 0px 0px 100000vh black;
+}
+
+/* Main */
+
+main {
+  margin-left: 5rem;
+  padding: 1rem;
+}
+
+/*card*/
+
+.container {
+  width: 1000px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container .card {
+  position: relative;
+  cursor: pointer;
+  background-color: #2d2d32;
+}
+
+.container .card .face {
+  width: 300px;
+  height: 200px;
+  transition: 0.5s;
+}
+
+.container .card .face.face1 {
+  position: relative;
+  background: #2d2d32;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  transform: translateY(100px);
+}
+
+.container .card:hover .face.face1 {
+  background: #ffc815;
+  transform: translateY(0);
+}
+
+.container .card .face.face1 .content {
+  opacity: 0.7;
+  transition: 0.5s;
+}
+
+.container .card:hover .face.face1 .content {
+  opacity: 1;
+}
+
+.container .card .face.face1 .content img {
+  max-width: 100px;
+}
+
+.container .card .face.face1 .content h3 {
+  margin: 10px 0 0;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.container .card .face.face2 {
+  position: relative;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+  transform: translateY(-100px);
+}
+
+.container .card:hover .face.face2 {
+  transform: translateY(0);
+}
+
+.container .card .face.face2 .content p {
+  margin: 0;
+  padding: 0;
+}
+
+.container .card .face.face2 .content a {
+  margin: 15px 0 0;
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 900;
+  color: #333;
+  padding: 5px;
+  border: 2px solid #333;
+}
+
+.container .card .face.face2 .content a:hover {
+  background: #333;
+  color: #fff;
+}
+
+.typed {
+  border-right: solid 4px rgb(255, 255, 255);
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 28px;
+  color: rgba(255, 255, 255, .70);
+  margin: 0 auto;
+}
+
+/* Animation */
+
+.typed {
+  animation: animated-text 4s steps(29, end) 1s 1 normal both, animated-cursor 600ms steps(29, end) infinite;
+}
+
+/* text animation */
+
+@keyframes animated-text {
+  from {
+    width: 0;
+  }
+  to {
+    width: 695px;
+  }
+}
+
+/* cursor animations */
+
+@keyframes animated-cursor {
+  from {
+    border-right-color: rgba(255, 255, 255, 0.75);
+  }
+  to {
+    border-right-color: transparent;
+  }
+}
+
+.paperplane {
+  position: relative;
+  overflow: hidden;
+  width: 400px;
+  height: 400px;
+  background-color: #50befa;
+  border-radius: 50%;
+}
+
+.plane {
+  position: absolute;
+  left: 200px;
+  top: 150px;
+  animation: move 3s linear infinite;
+}
+
+.wingRight {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 22.5px solid transparent;
+  border-right: 12.5px solid transparent;
+  border-bottom: 115px solid white;
+  transform: rotate(61deg);
+  z-index: 4;
+}
+
+.bottom {
+  position: relative;
+  width: 0;
+  height: 0;
+  border-left: 12.5px solid transparent;
+  border-right: 12.5px solid transparent;
+  border-bottom: 25.5px solid #676d70;
+  top: 71px;
+  transform: rotate(-5deg);
+  left: -52.5px;
+  z-index: 3;
+}
+
+.top {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 30px solid #c1c7c9;
+  top: 65px;
+  transform: rotate(5deg);
+  left: -60px;
+  z-index: 1;
+}
+
+.middle {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 135px solid #c1c7c9;
+  top: -13.5px;
+  transform: rotate(72deg);
+  left: -7.5px;
+  z-index: 2;
+}
+
+.wingLeft {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-bottom: 135px solid white;
+  transform: rotate(78deg) skewY(-35deg);
+  left: -18.5px;
+  z-index: 3;
+  top: -30px;
+}
+
+.clouds {
+  position: absolute;
+  top: 50px;
+  left: 100px;
+}
+
+.cloudOne, .cloudTwo, .cloudThree {
+  position: absolute;
+  width: 50px;
+  height: 25px;
+  background-color: #fff;
+  border-radius: 100px 100px 0 0;
+}
+
+.cloudOne {
+  top: 0;
+  left: 0;
+  animation: cloud 3s linear infinite reverse;
+}
+
+.cloudTwo {
+  top: 50px;
+  left: 100px;
+  animation: cloud 2.5s linear infinite reverse;
+}
+
+.cloudThree {
+  top: 250px;
+  left: 50px;
+  animation: cloud 2.8s linear infinite reverse;
+}
+
+.cloudOne:before, .cloudTwo:before, .cloudThree:before {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 12.5px;
+  background-color: #fff;
+  border-radius: 100px 100px 0 0;
+  left: -20px;
+  top: 12.5px;
+  box-shadow: 65px 0 #fff;
+}
+
+@keyframes move {
+  0% {
+    transform: translateY(0) rotateX(0);
+  }
+  25% {
+    transform: translateY(-30px) rotateX(40deg);
+  }
+  50% {
+    transform: rotateX(0) translateY(0);
+  }
+  75% {
+    transform: rotateX(-40deg) translateY(30px);
+  }
+  100% {
+    transform: rotateX(0) translateY(0);
+  }
+}
+
+@keyframes cloud {
+  from {
+    left: -150px;
+  }
+  to {
+    left: 400px;
+  }
+}
+
+.gradient-text {
+  /* Fallback: Set a background color. */
+  background-color: red;
+  /* Create the gradient. */
+  background-image: linear-gradient(45deg, #833ab4, #fcb045);
+  /* Set the background size and repeat properties. */
+  background-size: 100%;
+  background-repeat: repeat;
+  /* Use the text as a mask for the background. */
+  /* This will show the gradient as a text color rather than element bg. */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  font-size: 24px;
+  font-weight: bolder;
+  text-align: end;
+}
+
+.keyboard {
+  display: flex;
+  text-align: center;
+  font-size: 14px;
+  font-family: sans-serif;
+  flex-direction: column;
+  background: #121212;
+  padding: 12px;
+  padding-bottom: 20px;
+  border-radius: 8px;
+}
+
+.keyboard__row {
+  display: inline-block;
+  height: 3em;
+  margin: 0.2em;
+}
+
+.keyboard__row--h1 {
+  height: 1.7em;
+  line-height: 1.4em;
+}
+
+.keyboard__row--h3 {
+  height: 3.3em;
+}
+
+.keyboard__row>* {
+  position: relative;
+  background: #333;
+  text-align: center;
+  color: #eee;
+  float: left;
+  border-radius: 0.3em;
+  margin: 0.2em;
+  padding: 0.2em;
+  width: 3.3em;
+  height: 100%;
+  box-sizing: border-box;
+  cursor: pointer;
+  -webkit-user-select: none;
+  border: 1px solid #444;
+  box-shadow: 0 0.2em 0 0.05em #222;
+  border-bottom-color: #555;
+}
+
+.keyboard__row--h1>div {
+  width: 3.5em;
+}
+
+.keyboard__row>div[data-pressed], .keyboard__row>div:active {
+  background: #2a2a2a;
+  color: #aaa;
+  position: relative;
+  top: 0.2em;
+  box-shadow: 0 0 0 0.05em black;
+}
+
+.key--w3 {
+  width: 4.6em;
+}
+
+.key--w4 {
+  width: 6em;
+}
+
+.key--w5 {
+  width: 6.5em;
+}
+
+.key--w6 {
+  width: 8.3em;
+}
+
+.key--space {
+  width: 18em;
+}
+
+.key--double>* {
+  padding-top: 0.1em;
+}
+
+.key--letter {
+  line-height: 2.8em;
+}
+
+.key--bottom-left>* {
+  position: absolute;
+  text-align: left;
+  bottom: 0.4em;
+  left: 0.4em;
+}
+
+.key--bottom-right>* {
+  position: absolute;
+  text-align: right;
+  bottom: 0.4em;
+  right: 0.4em;
+}
+
+.key--fn>* {
+  font-size: 0.6em;
+  line-height: 1em;
+  padding-top: 1.2em;
+  padding-right: 0.2em;
+  text-align: right;
+  float: right;
+}
+
+.key--word>* {
+  font-size: 0.8em;
+}
+
+.key--arrow--tall>*, .key--arrow>* {
+  font-size: 0.5em;
+  line-height: 3em;
+}
+
+.key--arrow {
+  height: 1.8em;
+  margin-top: 1.7em;
+  line-height: 0.5em;
+}
+
+.key--arrow--tall>* {
+  padding-top: 0.2em;
+}
+
+.keyboard>.keyboard__row {
+  text-align: center;
+}
+
+/* Mark-Highlight */
+
+mark {
+  --color1: #FAC921;
+  ;
+  --color2: #FAC921;
+  ;
+  --height: 90%;
+  all: unset;
+  display: inline-block;
+  height: 1.05em;
+  line-height: 1.1;
+  background: linear-gradient(var(--color1), var(--color2));
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0 var(--height);
+  animation: highlight 800ms 1 ease-out;
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
+}
+
+@keyframes highlight {
+  to {
+    background-size: 100% var(--height);
+    color: black;
+  }
+}
+
+.outlined {
+  color: rgb(0, 0, 0);
+  text-shadow: -1px -1px 0 white, 0 -1px 0 white, 1px -1px 0 white, 1px 0 0 white, 1px 1px 0 white, 0 1px 0 white, -1px 1px 0 white, -1px 0 0 white;
+}
+
+.introContainer {
+  font-weight: bold;
+  display: flex;
+  background: #181817;
+  color: white;
+  height: 100vh;
+  position: relative;
+  padding-left: 10%;
+  overflow: hidden;
+}
+
+.intro {
+  font-size: clamp(48px, 7.5vw, 10vmin);
+  line-height: 1.1;
+  padding-bottom: 1%;
+  position: absolute;
+  bottom: 0;
+}
+
+.introTwo {
+  font-weight: bold;
+  overflow: hidden;
+  display: block;
+  padding-top: 48px;
+  padding-left: 10%;
+  background: #181817;
+  color: white;
+  font-size: clamp(48px, 7.5vw, 10vmin);
+  line-height: 1.1;
+  padding-bottom: 160px;
+}
+
+.introAM {
+  font-weight: bold;
+  overflow: hidden;
+  display: block;
+  padding-top: 48px;
+  padding-left: 10%;
+  background: #181817;
+  color: white;
+  font-size: clamp(48px, 7.5vw, 10vmin);
+  line-height: 1.1;
+  padding-bottom: 160px;
+}
+
+.introLB {
+  font-size: 20px;
+  overflow: hidden;
+  display: block;
+  padding-top: 48px;
+  background: #181817;
+  color: white;
+  font-size: clamp(48px, 7.5vw, 10vmin);
+  line-height: 1.1;
+  padding-bottom: 160px;
+}
+
+.abschnitt {
+  position: relative;
+  min-height: 50vh;
+  margin: auto;
+  background-color: #48c9b0;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.abschnitt.bg-static {
+  background-color: #000000;
+  height: 200vh;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.abschnitt .bg-move {
+  position: absolute;
+  top: 50%;
+  bottom: 0;
+  right: auto;
+  width: 100%;
+  background-image: url("gg.gif");
+  transform: rotate(120deg);
+  height: 400px;
+  width: 400px;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
